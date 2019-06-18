@@ -46,12 +46,12 @@ function displayEmployees() {
   el.empty();
   for (let item of employees) {
     let employeeBonus = employeeCalculator(item);
-    el.append('<ul>');
-    el.append('<li>' + 'Name: ' + employeeBonus.name + '</li>');
-    el.append('<li>' + ' Bonus Percentage: ' + employeeBonus.bonusPercentage  + '</li>');
-    el.append('<li>' + ' Total Compensation: ' + employeeBonus.totalCompensation + '</li>');
-    el.append('<li>' + ' Total Bonus: ' + employeeBonus.totalBonus + '</li>');
-    el.append('</ul>');
+    el.append('<ul>' 
+              + '<li>' + 'Name: ' + employeeBonus.name + '</li>'
+              + '<li>' + 'Bonus Percentage: ' + employeeBonus.bonusPercentage + '</li>'
+              + '<li>' + 'Total Compensation: ' + employeeBonus.totalCompensation + '</li>'
+              + '<li>' + 'Total Bonus: ' + employeeBonus.totalBonus + '</li>'
+              + '</ul>');
   }
 }
 
@@ -76,9 +76,11 @@ function employeeCalculator(object) {
   if ((object.employeeNumber).length === 4) {
     bonusPercentage += .05;
   }
+
   if (object.annualSalary > 65000) {
     bonusPercentage -= .01;
   }
+
   if (bonusPercentage > .13) {
     bonusPercentage = .13;
   } else if (bonusPercentage < 0) {
